@@ -1,15 +1,22 @@
 {
   "name": "react-function-helpers",
   "version": "1.0.0",
-  "description": "",
+  "description": "some useful react function helpers :)",
   "main": "index.js",
-  "type": "lib/index.d.ts",
-  "files": ["lib/**/*"],
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch --config src/setupTests.js",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -23,7 +30,10 @@
   },
   "homepage": "https://github.com/ms0223900/react-function-helpers#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "jest": "^24.9.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.4"
   }
