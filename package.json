@@ -1,0 +1,30 @@
+{
+  "name": "react-function-helpers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "lib/index.d.ts",
+  "files": ["lib/**/*"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ms0223900/react-function-helpers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ms0223900/react-function-helpers/issues"
+  },
+  "homepage": "https://github.com/ms0223900/react-function-helpers#readme",
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.4"
+  }
+}
