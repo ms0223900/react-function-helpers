@@ -1,4 +1,11 @@
 module.exports = {
+  "setupFilesAfterEnv": ["<rootDir>/setupTests.js"],
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "testEnvironment": "node",
+  "moduleDirectories": [
+    "node_modules",
+    "src",
+  ],
   "transform": {
     "^.+\\.(t|j)sx?$": "ts-jest"
   },

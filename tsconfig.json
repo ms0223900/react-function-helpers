@@ -2,11 +2,16 @@
   "compilerOptions": {
     "rootDir": "src",
     "target": "esnext",
+    "esModuleInterop": true,
     "module": "commonjs",
+    "moduleResolution": "node",
     "declaration": true,
     "outDir": "./lib",
-    "strict": true
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "jsx": "react"
   },
-  "include": ["src"],
+  "include": ["src", "setupEnzyme.ts"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
