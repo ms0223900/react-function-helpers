@@ -35,3 +35,8 @@ export function createContextValueFn<State extends Obj>(
     });
   };
 }
+
+export default {
+  createContextStore,
+  createContextValueFn
+};

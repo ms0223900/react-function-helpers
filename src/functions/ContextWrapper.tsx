@@ -1,12 +1,12 @@
 import { Callback } from 'all-common-types';
 import React, { Context, ReactNode } from 'react';
 
-interface ContextWrapperProps<ContextState> {
+export interface ContextWrapperProps<ContextState> {
   customInitState?: Partial<ContextState>
   customDispatch?: Callback
   children: ReactNode
 }
-type ContextValueFnType<ContextState> = (
+export type ContextValueFnType<ContextState> = (
   customInitState?: Partial<ContextState>,
   customDispatch?: Callback,
 ) => {

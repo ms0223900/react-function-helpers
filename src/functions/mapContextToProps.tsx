@@ -9,7 +9,6 @@ export type MapContextToProps<Context extends Dispatch<any> | StateObj, OwnProps
 ) => PropsFromContext
 
 export type MapDispatchToProps<OwnProps, PropsFromDispatch> = MapContextToProps<Dispatch<any>, OwnProps, PropsFromDispatch>
-
 export type MapStateToProps<State extends object, OwnProps, PropsFromState> = MapContextToProps<State, OwnProps, PropsFromState>
 
 export function makePropsFromContext<State extends StateObj, C extends Dispatch<any> | State, O, P>(
