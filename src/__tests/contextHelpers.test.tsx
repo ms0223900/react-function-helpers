@@ -1,33 +1,31 @@
-import React, { createContext, Reducer } from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { createContextStore, createContextValueFn, MyContext } from 'functions/contextHelpers';
 import { HookWrapper } from 'lib/TestHookWrapper';
+import React, { createContext, Reducer } from 'react';
 
 describe('test contextHelpers functions', () => {
   it('test createContextStore', () => {
     const createContextFn = jest.spyOn(React, 'createContext');
     const dispatch = jest.fn();
-    const initState_mock = {};
-    const _expect = {
+    const initStateMock = {};
+    const expectData = {
       dispatch,
-      state: initState_mock
+      state: initStateMock
     };
-    createContextStore(initState_mock, dispatch);
-    expect(createContextFn).toBeCalledWith(_expect);
+    createContextStore(initStateMock, dispatch);
+    expect(createContextFn).toBeCalledWith(expectData);
   });
-
-  
 });
 
 describe('test createContextValueFn', () => {
-  const initState_mock = {
+  const initStateMock = {
     a: 'a'
   };
-  const customState_mock = {
+  const customStateMock = {
     b: 'b'
   };
-  const reducers: Reducer<typeof initState_mock, {}> = (state, action) => state;
-  const contextValue = createContextValueFn(initState_mock, reducers);
+  const reducers: Reducer<typeof initStateMock, {}> = (state, action) => state;
+  const contextValue = createContextValueFn(initStateMock, reducers);
   const Wrapper = ({ customInitState }: {
     customInitState?: any
   }) => {
@@ -43,22 +41,22 @@ describe('test createContextValueFn', () => {
     const { state } = wrapper.find<{
       hook: MyContext<any>
     }>(HookWrapper).props().hook;
-    expect(state).toEqual(initState_mock);
+    expect(state).toEqual(initStateMock);
 
   });
 
   it('test createContextValueFn(with customInitState)', () => {
-    const _expect = {
-      ...initState_mock,
-      ...customState_mock,
+    const expectData = {
+      ...initStateMock,
+      ...customStateMock,
     };
     const wrapper = shallow(
-      <Wrapper customInitState={customState_mock} />
+      <Wrapper customInitState={customStateMock} />
     );
     const { state } = wrapper.find<{
       hook: MyContext<any>
     }>(HookWrapper).props().hook;
-    expect(state).toEqual(_expect);
+    expect(state).toEqual(expectData);
   });
   
 });

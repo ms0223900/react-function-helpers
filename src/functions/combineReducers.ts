@@ -1,8 +1,8 @@
 type Reducers<State> = {
-  [name in keyof State]: (state: State, action: any) => State[name]
-}
+  [name in keyof State]: (state: State, action: any) => State[name];
+};
 function combineReducers<State extends object>(reducers: Reducers<State>) {
-  type Key = keyof State
+  type Key = keyof State;
   return (state: State, action: any): State => {
     let newState = state;
     const allReducers = Object.keys(reducers) as Key[];

@@ -1,15 +1,15 @@
-import combineReducers from '../functions/combineReducers'
+import combineReducers from '../functions/combineReducers';
 
 describe('test combineReducers function', () => {
-  interface IState {
+  interface State {
     a: string,
     b: number[]
   }
-  const myState: IState = {
+  const myState: State = {
     a: '',
     b: []
   };
-  const a = (state: IState, action: any) => {
+  const a = (state: State, action: any) => {
     switch (action) {
       case 'a':
         return 'a';
@@ -17,7 +17,7 @@ describe('test combineReducers function', () => {
         return state.a;
     }
   };
-  const b = (state: IState, action: any) => {
+  const b = (state: State, action: any) => {
     switch (action) {
       case 'b':
         return [1];
@@ -35,7 +35,7 @@ describe('test combineReducers function', () => {
       ...myState,
       a: 'a',
     };
-    const combinedReducers = combineReducers<IState>(reducers);
+    const combinedReducers = combineReducers<State>(reducers);
     expect(combinedReducers(myState, 'a')).toEqual(EXPECT);
   });
 });

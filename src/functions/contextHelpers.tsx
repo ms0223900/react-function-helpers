@@ -1,16 +1,18 @@
-import { createContext, useReducer } from "react";
 import { Obj } from "all-common-types";
+import { createContext, useReducer } from "react";
 
 type Dispatch = (x?: any) => any
 type Reducers<State> = (state: State, action: any) => State
-export type MyContext<State> = {
+export interface MyContext<State> {
   dispatch: Dispatch
   state: State
 }
 
 export function createContextStore<State extends Obj>(
   initState: State, 
-  dispatch: Dispatch=() => {}
+  dispatch: Dispatch=() => {
+    // dispatch
+  }
 ) {
   return createContext<MyContext<State>>({
     dispatch,

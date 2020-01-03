@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test connectCtx function should wrap component and render correctly 1`] = `null`;

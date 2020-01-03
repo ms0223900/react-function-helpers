@@ -1,10 +1,9 @@
-import React from 'react'
 import { Obj } from 'all-common-types';
+import React from 'react';
 
 export function HookWrapper<HookProps extends any[] | Obj>(props: {
   hook: HookProps
 }) {
-  console.log(props.hook);
   return (
     <></> 
   );
