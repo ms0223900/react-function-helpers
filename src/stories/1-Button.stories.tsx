@@ -3,6 +3,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo';
 import withColorPicker from '../storybookAddon/colorPickerToolAddon/index';
+import { Typography } from '@material-ui/core';
 
 export default {
   title: 'Button',
@@ -18,6 +19,13 @@ export const Emoji = () => (
       😀 😎 👍 💯
     </span>
   </Button>
+);
+
+export const TypographyInTheme = () => (
+  <>
+    <Typography variant={'h1'} color={'primary'}>{'H1'}</Typography>
+    <Typography variant={'h2'} color={'secondary'}>{'H2'}</Typography>
+  </>
 );
 
 Emoji.story = {

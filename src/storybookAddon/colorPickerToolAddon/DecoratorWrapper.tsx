@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@material-ui/styles';
 import React, { useEffect, useState } from 'react';
-import createCustomThemeByColors, { ThemeCustomizableColors } from 'storybookAddon/colorPickerToolAddon/lib/createCustomThemeByColors';
+import createCustomThemeByColors, { ThemeCustomizableColors } from './lib/createCustomThemeByColors';
 import { EVENT_SET_THEME } from './config';
 import { connectToChannelAndDisconnect, MESSAGE_SET_THEME } from './lib/fn';
 import { StoryGetter } from '@storybook/addons';

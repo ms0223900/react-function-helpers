@@ -1,9 +1,11 @@
 module.exports = {
   stories: ['../src/stories/**/*.stories.tsx'],
   addons: [
-    '@storybook/addon-actions', 
-    '@storybook/addon-links',
-    'colorPickerToolAddon/register.js'
+    '@storybook/addon-actions/register.js',
+    '@storybook/addon-links/register.js',
+    './lib/storybookAddon/colorPickerToolAddon/register.js',
+    // './src/storybookAddon/addon/register.js'
+    // 'colorPickerToolAddon/register.js'
   ],
   webpackFinal: async config => {
     // do mutation to the config
