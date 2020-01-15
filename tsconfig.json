@@ -6,9 +6,9 @@
       "node_modules/@types",
       "./custom-types"
     ],
-    "target": "esnext",
+    "target": "es5",
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "declaration": true,
     "outDir": "./lib",

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test ColorItem should render correctly 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-5 makeStyles-root-1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-6 makeStyles-color-2"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  />
+  <div
+    className="MuiBox-root MuiBox-root-7 makeStyles-picked-3"
+  />
+</div>
+`;
