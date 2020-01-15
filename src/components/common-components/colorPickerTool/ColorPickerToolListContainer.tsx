@@ -1,17 +1,17 @@
-import React, { useRef, MutableRefObject } from 'react';
+import React, { MutableRefObject, useRef } from 'react';
 import { ColorPickerToolContainerRef } from './ColorPickerToolContainer';
-import { ThemeCustomizableColors } from './types';
 import ColorPickerToolList from './ColorPickerToolList';
+import { ThemeCustomizableColors } from './types';
 import { PaletteKeys } from './types';
 
 export const getColorOfColorPickerTool = (ref: MutableRefObject<ColorPickerToolContainerRef | null>): string => (
   ref.current ? ref.current.getPickedColor() : ''
 );
 
-type LabelsAndRefs<Ref> = {
+type LabelsAndRefs<Ref> = Array<{
   tabLabel: PaletteKeys,
   ref: MutableRefObject<Ref>
-}[]
+}>
 
 export interface ColorPickerToolListContainerProps {
   setThemeColorsFn?: (colors: ThemeCustomizableColors) => any
@@ -31,7 +31,9 @@ const ColorPickerToolListContainer = ({
       primary: getColorOfColorPickerTool(labelsAndRefs[0].ref),
       secondary: getColorOfColorPickerTool(labelsAndRefs[1].ref),
     };
-    setThemeColorsFn && setThemeColorsFn(themeColors);
+    if(setThemeColorsFn) {
+      setThemeColorsFn(themeColors);
+    }
   };
 
   return (

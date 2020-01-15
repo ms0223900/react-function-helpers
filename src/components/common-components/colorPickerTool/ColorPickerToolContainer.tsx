@@ -1,13 +1,13 @@
-import React, { useState, ChangeEvent, Ref, useImperativeHandle, forwardRef, useEffect, useCallback } from 'react';
 import { Box, Typography } from '@material-ui/core';
-import allColorsArr from './makeMaterialUIColors';
-import ShaderSlider from './ShadeSlider';
-import ColorInput from './ColorInput';
-import { colorShades, defaultColorShadeIndex } from './colorConfig';
-import ColorPickerTool, { getPickedColorNow, GetPickedColorNowParams } from './ColorPickerTool';
-import PickedColors from './PickedColors';
-import { PaletteKeys } from './types';
 import { Callback } from 'all-common-types';
+import React, { ChangeEvent, forwardRef, Ref, useCallback, useEffect, useImperativeHandle, useState } from 'react';
+import { colorShades, defaultColorShadeIndex } from './colorConfig';
+import ColorInput from './ColorInput';
+import ColorPickerTool, { getPickedColorNow, GetPickedColorNowParams } from './ColorPickerTool';
+import allColorsArr from './makeMaterialUIColors';
+import PickedColors from './PickedColors';
+import ShaderSlider from './ShadeSlider';
+import { PaletteKeys } from './types';
 
 export interface ColorPickerToolContainerRef {
   getPickedColor: () => string
@@ -17,8 +17,7 @@ export interface ColorPickerToolContainerProps {
 }
 
 export class Actions {
-  static setColorAction = (params: GetPickedColorNowParams) => (dispatch: Callback) => {
-    console.log('dispatch');
+  public static setColorAction = (params: GetPickedColorNowParams) => (dispatch: Callback) => {
     const colorNow = getPickedColorNow(params);
     dispatch(colorNow);
   }

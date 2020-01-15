@@ -1,9 +1,9 @@
-import React from 'react';
 import { Box, createMuiTheme, Theme } from '@material-ui/core';
+import React from 'react';
 import { ColorItem } from './ColorItem';
 
 export class HandlePaletteColors {
-  static createSingleColorPalette = (color: string) => createMuiTheme({
+  public static createSingleColorPalette = (color: string) => createMuiTheme({
     palette: {
       primary: {
         main: color
@@ -11,10 +11,10 @@ export class HandlePaletteColors {
     }
   })
 
-  static getPaletteColors(color: string) {
+  public static getPaletteColors(color: string) {
     let newTheme = createMuiTheme();
     try {
-      //use primary to calculate dark and light colors
+      // use primary to calculate dark and light colors
       newTheme = this.createSingleColorPalette(color);
     } catch(e) {
       

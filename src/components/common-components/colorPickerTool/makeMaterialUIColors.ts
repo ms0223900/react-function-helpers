@@ -10,7 +10,7 @@ export const getMaterialColorNames = () => {
   return colorNamesRemoveCommon;
 };
 
-type ColorKeys = (keyof typeof Colors)[]
+type ColorKeys = Array<keyof typeof Colors>
 const makeAllColorsArr = () => {
   const colorNamesRemoveCommon = getMaterialColorNames();
   return colorNamesRemoveCommon.map(color => Colors[color]) as Color[];

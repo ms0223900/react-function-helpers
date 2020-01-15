@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
 import { Box, Color, makeStyles } from '@material-ui/core';
-import allColorsArr from './makeMaterialUIColors';
-import { ColorItem,  } from './ColorItem';
+import React, { useCallback } from 'react';
 import { PICKER_TOOL_WIDTH } from './colorConfig';
+import { ColorItem,  } from './ColorItem';
+import allColorsArr from './makeMaterialUIColors';
 
 export interface GetPickedColorNowParams {
   colorsArr: Color[], 

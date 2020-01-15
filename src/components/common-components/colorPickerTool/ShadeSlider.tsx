@@ -1,5 +1,5 @@
-import React, { ChangeEvent } from 'react';
 import { Box, Slider, Typography } from '@material-ui/core';
+import React, { ChangeEvent } from 'react';
 import { colorShades, ColorShades, defaultColorShadeIndex } from './colorConfig';
 
 export const getMax = (arr: any[]) => arr.length - 1;

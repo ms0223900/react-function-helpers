@@ -1,7 +1,7 @@
-import React from 'react';
 import { Box, makeStyles } from '@material-ui/core';
 import { CheckCircle } from '@material-ui/icons';
 import { Callback } from 'all-common-types';
+import React from 'react';
 import { ITEM_WIDTH } from './colorConfig';
 
 const useStyles = makeStyles(theme => ({

@@ -1,12 +1,12 @@
+import { Box, Button, makeStyles } from '@material-ui/core';
 import React, { MutableRefObject } from 'react';
 import ColorPickerToolContainer, { ColorPickerToolContainerRef } from './ColorPickerToolContainer';
-import { Button, makeStyles, Box } from '@material-ui/core';
 import { PaletteKeys } from './types';
 
-export type LabelsAndRefs<RefType> = {
+export type LabelsAndRefs<RefType> = Array<{
   tabLabel: PaletteKeys,
   ref: MutableRefObject<RefType | null>
-}[]
+}>
 export interface ColorPickerToolListProps<RefType> {
   labelsAndRefs: LabelsAndRefs<RefType>
   handleSetThemeColorFn: () => any

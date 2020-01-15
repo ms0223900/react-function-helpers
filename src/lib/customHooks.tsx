@@ -1,6 +1,6 @@
+import { Obj } from 'all-common-types';
 import React, { ChangeEvent, useRef } from 'react';
 import { useState } from "react";
-import { Obj } from 'all-common-types';
 
 export const useSelectTab = (initIndex: number=0): 
 [number, (e: any, value: number) => any] => {
@@ -45,7 +45,9 @@ export function useSearch<State extends {[x: string]: string}, K extends keyof S
       ...val,
       [name]: value,
     }));
-    queryFn && queryFn(name, value);
+    if(queryFn) {
+      queryFn(name, value);
+    }
   };
 
   const handleSetValues = (name: K) => (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +65,6 @@ export function useSearch<State extends {[x: string]: string}, K extends keyof S
 export function HookWrapper<HookProps extends any[] | Obj>(props: {
   hook: HookProps
 }) {
-  console.log(props.hook);
   return (
     <></>
   );
