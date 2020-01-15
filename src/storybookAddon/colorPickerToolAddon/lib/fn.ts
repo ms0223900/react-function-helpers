@@ -1,15 +1,14 @@
-import { EVENT_SET_THEME } from "../config";
 import addons from "@storybook/addons";
 import { Callback } from "all-common-types";
+import { EVENT_SET_THEME } from "../config";
+import { ThemeCustomizableColors } from './createCustomThemeByColors';
 
 type Emit = (type: string, ...args: any[]) => any
-type Colors = {
-  primary?: string, 
-  secondary?: string, 
-  complementaryMain?: string, 
-  complementaryDark?: string
+export interface MESSAGE_SET_THEME {
+  themeColors: ThemeCustomizableColors,
 }
-export const setThemeColorsFn = (emit: Emit) => (colors: Colors) => {
+
+export const setThemeColorsFn = (emit: Emit) => (colors: ThemeCustomizableColors) => {
   emit(EVENT_SET_THEME, {
     themeColors: colors,
   });

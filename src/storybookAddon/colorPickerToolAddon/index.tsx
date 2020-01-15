@@ -1,14 +1,20 @@
+import { makeDecorator, StoryContext } from '@storybook/addons';
 import React from 'react';
-import { makeDecorator } from '@storybook/addons';
 import { PARAMETER_ID } from './config';
 import DecoratorWrapper from './DecoratorWrapper';
+import { Theme } from '@material-ui/core';
 
+interface StoryWrapperContext extends StoryContext {
+  defaultTheme?: Theme
+}
 export default makeDecorator({
   name: 'withColorPicker',
   parameterName: PARAMETER_ID,
-  wrapper: (storyFn) => {
+  wrapper: (storyFn, context: StoryWrapperContext) => {
     return (
-      <DecoratorWrapper childrenFn={storyFn} />
+      <DecoratorWrapper 
+        defaultTheme={context.defaultTheme} 
+        childrenFn={storyFn} />
     );
   }
 });

@@ -1,14 +1,15 @@
-import React from 'react';
 import { useChannel } from '@storybook/api';
-import ThemeColorsColorPickerToolWithTabsContainer from './colorPickerTool/ThemeColorsColorPickerToolWithTabsContainer';
+import React, { useCallback } from 'react';
+import { MaterialUIColorPickerTool } from 'index';
 import { setThemeColorsFn } from './lib/fn';
 
 const Panel = () => {
   const emit = useChannel({});
+  const handleSetThemeColors = useCallback(setThemeColorsFn(emit), []);
   return (
     <>
-      <ThemeColorsColorPickerToolWithTabsContainer 
-        setThemeColorsFn={setThemeColorsFn(emit)} />
+      <MaterialUIColorPickerTool 
+        setThemeColorsFn={handleSetThemeColors} />
     </>
   );
 };
