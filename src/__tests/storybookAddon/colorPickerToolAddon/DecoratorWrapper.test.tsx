@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import DecoratorWrapper from '../../../storybookAddon/colorPickerToolAddon/DecoratorWrapper';
+import DecoratorWrapper from '../../../storybookAddon/colorPickerToolAddon/dist/DecoratorWrapper';
 import addons, { mockChannel } from '@storybook/addons';
-import { EVENT_SET_THEME } from '../../../storybookAddon/colorPickerToolAddon/config';
+import { EVENT_SET_THEME } from '../../../storybookAddon/colorPickerToolAddon/dist/config';
 
 let SPY_ADDONS: any = undefined;
 let mockOn = jest.fn();
