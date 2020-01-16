@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { Typography } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo';
-import withColorPicker from '../storybookAddon/colorPickerToolAddon/index';
-import { Typography } from '@material-ui/core';
+import withColorPicker from 'react-function-helpers/lib/storybookAddon/colorPickerToolAddon';
 
 export default {
   title: 'Button',

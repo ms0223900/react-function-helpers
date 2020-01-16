@@ -4,7 +4,7 @@ import { EVENT_SET_THEME } from "../config";
 import { ThemeCustomizableColors } from './createCustomThemeByColors';
 
 type Emit = (type: string, ...args: any[]) => any
-export interface MESSAGE_SET_THEME {
+export interface MessageSetTheme {
   themeColors: ThemeCustomizableColors,
 }
 

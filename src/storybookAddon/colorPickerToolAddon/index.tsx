@@ -1,8 +1,8 @@
+import { Theme } from '@material-ui/core';
 import { makeDecorator, StoryContext } from '@storybook/addons';
 import React from 'react';
 import { PARAMETER_ID } from './config';
 import DecoratorWrapper from './DecoratorWrapper';
-import { Theme } from '@material-ui/core';
 
 interface StoryWrapperContext extends StoryContext {
   defaultTheme?: Theme
