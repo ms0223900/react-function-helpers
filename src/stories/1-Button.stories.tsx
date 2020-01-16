@@ -4,7 +4,7 @@ import { Typography, createMuiTheme } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo';
 // import withColorPicker from 'react-function-helpers/lib/storybookAddon/colorPickerToolAddon';
-import withColorPicker from '../storybookAddon/colorPickerToolAddon';
+import { withColorPickerTool } from '../../lib';
 import { PARAMETER_ID } from 'react-function-helpers/lib/storybookAddon/colorPickerToolAddon/config';
 import { ColorPickerTool } from '../components/common-components';
 
@@ -19,7 +19,7 @@ const testTheme = createMuiTheme({
 export default {
   title: 'Button',
   component: Button,
-  decorators: [withColorPicker],
+  decorators: [withColorPickerTool],
   parameters: {
     [PARAMETER_ID]: {
       defaultTheme: testTheme

@@ -1,7 +1,7 @@
 import { Box, Typography, makeStyles } from '@material-ui/core';
 import { Callback } from 'all-common-types';
 import React, { ChangeEvent, forwardRef, Ref, useCallback, useEffect, useImperativeHandle, useState } from 'react';
-import { colorShades, defaultColorShadeIndex } from './colorConfig';
+import { colorShades, defaultColorShadeIndex, PICKER_TOOL_WIDTH } from './colorConfig';
 import ColorInput from './ColorInput';
 import ColorPickerTool, { getPickedColorNow, GetPickedColorNowParams } from './ColorPickerTool';
 import allColorsArr from './makeMaterialUIColors';
@@ -12,6 +12,7 @@ import { PaletteKeys } from './types';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(0.5),
+    maxWidth: PICKER_TOOL_WIDTH + theme.spacing(0.5)
   }
 }));
 

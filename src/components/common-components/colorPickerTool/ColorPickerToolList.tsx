@@ -2,6 +2,7 @@ import { Box, Button, makeStyles } from '@material-ui/core';
 import React, { MutableRefObject } from 'react';
 import ColorPickerToolContainer, { ColorPickerToolContainerRef } from './ColorPickerToolContainer';
 import { PaletteKeys } from './types';
+import { PICKER_TOOL_WIDTH } from './colorConfig';
 
 export type LabelsAndRefs<RefType> = Array<{
   tabLabel: PaletteKeys,
@@ -12,9 +13,15 @@ export interface ColorPickerToolListProps<RefType> {
   handleSetThemeColorFn: () => any
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     // padding: 8,
+  },
+  toolPart: {
+    [theme.breakpoints.up( (PICKER_TOOL_WIDTH + theme.spacing(0.5)) * 2 )]: {
+      display: 'flex'
+    },
+    display: 'block'
   }
 }));
 
@@ -25,7 +32,7 @@ const ColorPickerToolList = ({
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <Box display={'flex'}>
+      <Box className={classes.toolPart}>
         {labelsAndRefs.map((labelAndRef, i) => (
           <ColorPickerToolContainer
             key={i} 

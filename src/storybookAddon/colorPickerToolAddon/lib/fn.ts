@@ -1,6 +1,6 @@
 import addons from "@storybook/addons";
 import { Callback } from "all-common-types";
-import { EVENT_SET_THEME } from "../config";
+import { EVENT_SET_THEME } from "../dist/config";
 import { ThemeCustomizableColors } from './createCustomThemeByColors';
 
 type Emit = (type: string, ...args: any[]) => any

@@ -5,7 +5,7 @@ import { ADDON_ID, PANEL_ID } from './config';
 import Panel from './Panel';
 
 // Register the addon with a unique name.
-addons.register(ADDON_ID, () => {
+const register = () => addons.register(ADDON_ID, () => {
   // Also need to set a unique name to the panel.
   addons.addPanel(PANEL_ID, {
     title: ADDON_ID,
@@ -16,3 +16,6 @@ addons.register(ADDON_ID, () => {
     ),
   });
 });
+
+export default register;
+
