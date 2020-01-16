@@ -1,4 +1,4 @@
-import { Box, Typography, makeStyles } from '@material-ui/core';
+import { Box, makeStyles, Typography } from '@material-ui/core';
 import { Callback } from 'all-common-types';
 import React, { ChangeEvent, forwardRef, Ref, useCallback, useEffect, useImperativeHandle, useState } from 'react';
 import { colorShades, defaultColorShadeIndex, PICKER_TOOL_WIDTH } from './colorConfig';

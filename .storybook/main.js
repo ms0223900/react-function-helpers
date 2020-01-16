@@ -3,8 +3,8 @@ module.exports = {
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',
-    // 'react-function-helpers/lib/storybookAddon/colorPickerToolAddon/register.js', //production
-    './lib/storybookAddon/colorPickerToolAddon/register.js', //dev
+    'react-function-helpers/lib/storybookAddon/colorPickerToolAddon/register.js', //production
+    // './lib/storybookAddon/colorPickerToolAddon/register.js', //dev
   ],
   webpackFinal: async config => {
     // do mutation to the config

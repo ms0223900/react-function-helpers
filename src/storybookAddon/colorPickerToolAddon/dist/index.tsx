@@ -1,4 +1,4 @@
-import { Theme, createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, Theme } from '@material-ui/core';
 import { makeDecorator, StoryContext, useParameter } from '@storybook/addons';
 import React from 'react';
 import { PARAMETER_ID } from './config';

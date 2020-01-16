@@ -1,9 +1,9 @@
 import { createMuiTheme, Theme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
-import React, { useEffect, useState, ReactChild, useCallback } from 'react';
-import { EVENT_SET_THEME } from './config';
+import React, { ReactChild, useCallback, useEffect, useState } from 'react';
 import createCustomThemeByColors, { ThemeCustomizableColors } from '../lib/createCustomThemeByColors';
 import { connectToChannelAndDisconnect, MessageSetTheme } from '../lib/fn';
+import { EVENT_SET_THEME } from './config';
 
 
 export interface DecoratorWrapperProps {

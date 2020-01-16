@@ -1,8 +1,8 @@
 import { Box, Button, makeStyles } from '@material-ui/core';
 import React, { MutableRefObject } from 'react';
+import { PICKER_TOOL_WIDTH } from './colorConfig';
 import ColorPickerToolContainer, { ColorPickerToolContainerRef } from './ColorPickerToolContainer';
 import { PaletteKeys } from './types';
-import { PICKER_TOOL_WIDTH } from './colorConfig';
 
 export type LabelsAndRefs<RefType> = Array<{
   tabLabel: PaletteKeys,

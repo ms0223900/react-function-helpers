@@ -9569,6 +9569,11 @@ react-focus-lock@^2.1.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
+react-function-helpers@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.3.tgz#2f988f716bf9c144ca3f750b9c1b4b1465e1dcd9"
+  integrity sha512-aYfWCHdFttW2bvtiuSELtjzU1vR0GpQz9HrqkWNYXAQpDGxeLJj02V5m815jNBhZuhrtAY/w9JYIR0JDrJ5etQ==
+
 react-helmet-async@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.0.4.tgz#079ef10b7fefcaee6240fefd150711e62463cc97"
