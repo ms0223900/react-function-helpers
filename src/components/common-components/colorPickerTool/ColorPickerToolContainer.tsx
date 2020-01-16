@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography, makeStyles } from '@material-ui/core';
 import { Callback } from 'all-common-types';
 import React, { ChangeEvent, forwardRef, Ref, useCallback, useEffect, useImperativeHandle, useState } from 'react';
 import { colorShades, defaultColorShadeIndex } from './colorConfig';
@@ -9,13 +9,18 @@ import PickedColors from './PickedColors';
 import ShaderSlider from './ShadeSlider';
 import { PaletteKeys } from './types';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(0.5),
+  }
+}));
+
 export interface ColorPickerToolContainerRef {
   getPickedColor: () => string
 }
 export interface ColorPickerToolContainerProps {
   label: PaletteKeys
 }
-
 export class Actions {
   public static setColorAction = (params: GetPickedColorNowParams) => (dispatch: Callback) => {
     const colorNow = getPickedColorNow(params);
@@ -23,11 +28,11 @@ export class Actions {
   }
 }
 
-
 const ColorPickerToolContainer = (
   props: ColorPickerToolContainerProps, 
   ref: Ref<ColorPickerToolContainerRef>
 ) => {
+  const classes = useStyles();
   const { label } = props;
   const [pickedColor, setColor] = useState('#fff');
   const [pickedColorIndex, setColorIndex] = useState<number>();
@@ -60,7 +65,7 @@ const ColorPickerToolContainer = (
   }, [colorShade, pickedColorIndex]);
 
   return (
-    <Box>
+    <Box className={classes.root}>
       <Typography variant={'h6'}>{label}</Typography>
       <PickedColors pickedColor={pickedColor} />
       <ColorInput onChange={handleInputColor} value={pickedColor} />

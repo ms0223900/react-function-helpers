@@ -1,20 +1,23 @@
-import { Theme } from '@material-ui/core';
-import { makeDecorator, StoryContext } from '@storybook/addons';
+import { Theme, createMuiTheme } from '@material-ui/core';
+import { makeDecorator, StoryContext, useParameter } from '@storybook/addons';
 import React from 'react';
 import { PARAMETER_ID } from './config';
 import DecoratorWrapper from './DecoratorWrapper';
 
-interface StoryWrapperContext extends StoryContext {
-  defaultTheme?: Theme
-}
 export default makeDecorator({
   name: 'withColorPicker',
   parameterName: PARAMETER_ID,
-  wrapper: (storyFn, context: StoryWrapperContext) => {
+  wrapper: (storyFn, context) => {
+    const params = useParameter(PARAMETER_ID, {
+      defaultTheme: createMuiTheme()
+    }) as {
+      defaultTheme: Theme
+    };
     return (
       <DecoratorWrapper 
-        defaultTheme={context.defaultTheme} 
-        childrenFn={storyFn} />
+        defaultTheme={params.defaultTheme}>
+        {storyFn(context)}
+      </DecoratorWrapper>
     );
   }
 });

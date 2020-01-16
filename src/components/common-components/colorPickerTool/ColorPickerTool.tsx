@@ -18,7 +18,7 @@ export const getPickedColorNow = ({colorsArr, colorIndex, colorShade}: {
     colorsArr[colorIndex][colorShade] : '';
 };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     width: PICKER_TOOL_WIDTH,
   }

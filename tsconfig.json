@@ -18,5 +18,5 @@
     "jsx": "react"
   },
   "include": ["src", "setupEnzyme.ts"],
-  "exclude": ["node_modules", "**/__tests/*"]
+  "exclude": ["node_modules", "**/__tests/*", "**/stories/*"]
 }

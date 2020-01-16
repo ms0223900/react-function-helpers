@@ -14,7 +14,7 @@ export interface ColorPickerToolListProps<RefType> {
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: 600,
+    // padding: 8,
   }
 }));
 
@@ -38,7 +38,7 @@ const ColorPickerToolList = ({
         variant={'contained'} 
         color={'primary'}
       >
-        {'set theme color'}
+        {'set theme'}
       </Button>
     </Box>
   );
