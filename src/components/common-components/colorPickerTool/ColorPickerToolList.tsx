@@ -18,10 +18,10 @@ const useStyles = makeStyles(theme => ({
     // padding: 8,
   },
   toolPart: {
-    [theme.breakpoints.up( (PICKER_TOOL_WIDTH + theme.spacing(0.5)) * 2 )]: {
-      display: 'flex'
+    display: 'flex',
+    [theme.breakpoints.down( (PICKER_TOOL_WIDTH + theme.spacing(0.5)) * 2 )]: {
+      display: 'block'
     },
-    display: 'block'
   }
 }));
 
