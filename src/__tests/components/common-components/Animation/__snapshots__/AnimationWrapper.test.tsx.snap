@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test AnimationWrapper HOC should render correctly 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-4 slideInDown"
+  style={
+    Object {
+      "animationDelay": "0s",
+      "animationDuration": "1s",
+      "animationFillMode": "forwards",
+    }
+  }
+/>
+`;
+
+exports[`test AnimationWrapper should render correctly(with custom props) 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-3 slideOutDown"
+  style={
+    Object {
+      "animationDelay": "0s",
+      "animationDuration": "10s",
+      "animationFillMode": "forwards",
+    }
+  }
+/>
+`;
+
+exports[`test AnimationWrapper should render correctly(with default props) 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-2 slideInDown"
+  style={
+    Object {
+      "animationDelay": "0s",
+      "animationDuration": "1s",
+      "animationFillMode": "forwards",
+    }
+  }
+/>
+`;

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test AnimatedTimerQueueWrapper wrapper should render correctly 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-2 slideInDown"
+  style={
+    Object {
+      "animationDelay": "0s",
+      "animationDuration": "1s",
+      "animationFillMode": "forwards",
+    }
+  }
+/>
+`;
