@@ -2,6 +2,7 @@ import React from 'react';
 import GradientItem, { GradientItemProps } from '../components/common-components/Gradient/GradientItem';
 import { GradientResult } from '../components/common-components/Gradient';
 import { GradientResultProps } from '../components/common-components/Gradient/GradientResult';
+import GradientContainer from '../components/common-components/Gradient/GradientContainer';
 
 const gradientItemProps: GradientItemProps = {
   values: {
@@ -30,6 +31,10 @@ export const GradientItemComponent = () => (
 
 export const gradientResult = () => (
   <GradientResult {...gradientResultProps} />
+);
+
+export const gradientContainer = () => (
+  <GradientContainer />
 );
 
 export default {

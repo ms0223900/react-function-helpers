@@ -15,11 +15,13 @@ const handleGradientColorsToString = (valueList: GradientItemValue[]) => {
   return values.join(', ');
 };
 
+const getGradientColor = (props: GradientResultProps) => (
+  `linear-gradient(${props.degree}deg, ${handleGradientColorsToString(props.gradientItemValueList)})`
+);
+
 const useStyles = makeStyles<Theme, GradientResultProps>(theme => ({
   root: {
-    background: props => (
-      `linear-gradient(${props.degree}deg, ${handleGradientColorsToString(props.gradientItemValueList)});`
-    ),
+    background: getGradientColor,
     minWidth: 400,
     minHeight: 300,
   }
@@ -28,6 +30,7 @@ const useStyles = makeStyles<Theme, GradientResultProps>(theme => ({
 
 const GradientResult = (props: GradientResultProps) => {
   const classes = useStyles(props);
+  
   return (
     <Box className={classes.root} />
   );
