@@ -3,10 +3,9 @@ import React from 'react';
 import { Typography, createMuiTheme } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo';
-// import withColorPicker from 'react-function-helpers/lib/storybookAddon/colorPickerToolAddon';
-import { withColorPickerTool } from 'react-function-helpers/lib';
-import { PARAMETER_ID } from 'react-function-helpers/lib/storybookAddon/colorPickerToolAddon/dist/config';
 import { ColorPickerTool } from '../components/common-components';
+import { PARAMETER_ID } from '../storybookAddon/colorPickerToolAddon/dist/config';
+import withColorPickerTool from '../storybookAddon/colorPickerToolAddon/dist/index';
 
 const testTheme = createMuiTheme({
   palette: {
