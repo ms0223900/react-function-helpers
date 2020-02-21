@@ -7,7 +7,7 @@ import { FilterSelectorContainerProps, FilterSelectorContainerStates } from './t
 const initDefaultSelectedText = '--請選擇路線';
 
 export const initFilterSelectorContainerState: FilterSelectorContainerStates = ({
-  selectedIndex: undefined,
+  selectedIndex: 0,
   selectedText: initDefaultSelectedText,
   isDisplaySelects: false,
   filterInput: '',
@@ -40,7 +40,7 @@ const useFilterSelector = (props: FilterSelectorContainerProps) => {
       options,
       defaultSelectedText,
     }));
-  }, [options]);
+  }, [JSON.stringify(options)]);
 
   const handleToggleDisplaySelects = useCallback(() => {
     dispatch(toggleDisplaySelects());

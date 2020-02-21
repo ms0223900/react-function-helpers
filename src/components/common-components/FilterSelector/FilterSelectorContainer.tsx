@@ -1,15 +1,25 @@
-import React, {  } from 'react';
+import { Callback } from 'all-common-types';
+import React, { forwardRef, Ref, useImperativeHandle } from 'react';
 import FilterSelector from './FilterSelector';
 import { FilterSelectorContainerProps } from './types';
 import useFilterSelector from './useFilterSelector';
 
-const FilterSelectorContainer = (props: FilterSelectorContainerProps) => {
+const FilterSelectorContainer = (props: FilterSelectorContainerProps, ref: Ref<{
+  resetFilterSelector: Callback
+}>) => {
   const {
     state,
     handleFilter,
+    handleResetSelect,
     handleSelect,
     handleToggleDisplaySelects,
   } = useFilterSelector(props);
+
+  useImperativeHandle(ref, () => {
+    return ({
+      resetFilterSelector: handleResetSelect,
+    });
+  }, [handleResetSelect]);
 
   return (
     <FilterSelector
@@ -22,4 +32,4 @@ const FilterSelectorContainer = (props: FilterSelectorContainerProps) => {
   );
 };
 
-export default FilterSelectorContainer;
+export default forwardRef(FilterSelectorContainer);
