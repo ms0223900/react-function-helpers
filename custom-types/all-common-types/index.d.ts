@@ -8,6 +8,7 @@ declare module 'all-common-types' {
   type ID = number | string
   export type Locale = 'zh' | 'en'
   export type HOC<InjectProps> = <Props>(Component: React.ComponentType<Props & InjectProps>) => React.ComponentType<Props & InjectProps>
+  export type Reducer<State extends object, ActionTypes, ReducedState> = (state: State, action: ActionTypes) => ReducedState
 
   export type OnShelfOffShelf = {
     on_shelf_at: string

@@ -10,13 +10,16 @@
   "scripts": {
     "start": "webpack-dev-server --open --watch",
     "test": "jest --watch",
+    "testC": "jest --coverage",
     "testO": "jest",
     "build": "tsc",
+    "build-wp": "webpack",
+    "start-build": "npx serve ./dist",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json --fix",
     "prepare": "rm -rf lib && npm run build",
     "prepublishOnly": "npm run testO && npm run lint",
-    "postpublish": "git add -a && rm -rf lib",
+    "postpublish": "git add -A && rm -rf lib",
     "preversion": "npm run lint && git add -a",
     "version": "npm run format",
     "postversion": "git push && git push --tags",
@@ -78,5 +81,7 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "serve": "^11.3.0"
+  }
 }
