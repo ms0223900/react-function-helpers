@@ -9,6 +9,7 @@ import { SelectorOptions } from '../components/common-components/FilterSelector/
 
 const gradientItemProps: GradientItemProps = {
   values: {
+    id: 0,
     color: '#aff',
     percent: 0,
   }
@@ -18,10 +19,12 @@ const gradientResultProps: GradientResultProps = {
   degree: 90,
   gradientItemValueList: [
     {
+      id: 0,
       color: '#aff',
       percent: 0,
     },
     {
+      id: 1,
       color: '#0bd',
       percent: 100,
     }

@@ -1,5 +1,5 @@
-import { Box, makeStyles, Theme } from '@material-ui/core';
-import React from 'react';
+import { Box, makeStyles, Theme, RootRef } from '@material-ui/core';
+import React, { forwardRef, Ref, MutableRefObject, RefObject, useRef, useEffect } from 'react';
 import { GradientItemValue } from './types';
 
 export interface GradientResultProps {
@@ -28,12 +28,15 @@ const useStyles = makeStyles<Theme, GradientResultProps>(theme => ({
 }));
 
 
-const GradientResult = (props: GradientResultProps) => {
+const GradientResult = forwardRef((props: GradientResultProps, ref) => {
   const classes = useStyles(props);
-  
+
   return (
-    <Box className={classes.root} />
+    <RootRef rootRef={ref as any}>
+      <Box
+        className={classes.root} />
+    </RootRef>
   );
-};
+});
 
 export default GradientResult;

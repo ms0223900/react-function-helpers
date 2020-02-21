@@ -3,10 +3,15 @@ import React, { useCallback, useReducer } from 'react';
 import GradientColorsList from './GradientColorsList';
 import GradientResult, { GradientResultProps } from './GradientResult';
 import { ColorPercent } from './types';
+import reducer from './reducers';
+import { addColor, editColor, deleteColor } from './actions';
+import { ID } from 'all-common-types';
+import GradientResultContainer from './GradientResultContainer';
 
 export type State = GradientResultProps
 
-const initGradientItem = {
+export const initGradientItem = {
+  id: 0,
   color: '#aff',
   percent: 0,
 };
@@ -16,87 +21,44 @@ const initState = {
   gradientItemValueList: [
     initGradientItem,
     {
+      id: 1,
       color: '#0bd',
       percent: 100,
     }
   ]
 };
 
-enum ACTION_TYPES {
-  'ADD_COLOR',
-  'EDIT_COLOR_PERCENT',
-  'EDIT_DEGREE'
-}
-
-const addColorAction = () => ({
-  type: ACTION_TYPES.ADD_COLOR,
-});
-
-interface EditColorActionPayload {
-  index: number,
-  name: ColorPercent,
-  value: string,
-}
-const editColorAction = (payload: EditColorActionPayload) => ({
-  type: ACTION_TYPES.EDIT_COLOR_PERCENT,
-  payload,
-});
-
-const reducer = (state: State, action: any): State => {
-  switch (action.type) {
-    case ACTION_TYPES.ADD_COLOR:
-      return ({
-        ...state,
-        gradientItemValueList: [
-          ...state.gradientItemValueList,
-          initGradientItem,
-        ]
-      });
-    case ACTION_TYPES.EDIT_COLOR_PERCENT: {
-      const {
-        index,
-        name,
-        value
-      } = action.payload as EditColorActionPayload;
-      const newValueList = [...state.gradientItemValueList];
-      newValueList[index] = {
-        ...newValueList[index],
-        [name]: value
-      };
-      return ({
-        ...state,
-        gradientItemValueList: newValueList,
-      });
-    }
-    default:
-      return state;
-  }
-};
-
 const GradientContainer = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   const handleAddColor = useCallback(() => {
-    dispatch(addColorAction());
+    dispatch(addColor());
   }, []);
 
-  const handleSetColorPercent = useCallback((index: number) => {
+  const handleDeleteColor = useCallback((id: ID) => {
+    return () => dispatch(deleteColor({ id }));
+  }, []);
+
+  const handleSetColorPercent = useCallback((id: ID) => {
     return (nameVal: {
       name: ColorPercent,
       value: string
-    }) =>
-      dispatch(editColorAction({
-        index,
+    }) => {
+      const action = editColor({
+        id,
         name: nameVal.name,
         value: nameVal.value,
-      }));
+      });
+      dispatch(action);
+    };
   }, []);
 
   return (
     <Box>
-      <GradientResult {...state} />
+      <GradientResultContainer {...state} />
       <GradientColorsList 
         addColorFn={handleAddColor}
+        deleteColorFn={handleDeleteColor}
         gradientItemValueList={state.gradientItemValueList}
         editColorPercentFn={handleSetColorPercent} />
     </Box>
