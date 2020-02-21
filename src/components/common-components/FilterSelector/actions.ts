@@ -1,4 +1,4 @@
-import { FilterSelectorContainerStates, FilterSelectorContainerProps } from './types';
+import { FilterSelectorContainerProps, FilterSelectorContainerStates } from './types';
 
 export enum FilterSelectorActionTypes {
   SET_STATE,

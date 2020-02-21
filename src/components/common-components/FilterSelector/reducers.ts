@@ -1,7 +1,7 @@
 import { Reducer } from 'all-common-types';
-import { FilterSelectorContainerStates } from './types';
-import { filterRoutesByValue } from './fn';
 import { FilterSelectorActions, FilterSelectorActionTypes } from './actions';
+import { filterRoutesByValue } from './fn';
+import { FilterSelectorContainerStates } from './types';
 import { initFilterSelectorContainerState } from './useFilterSelector';
 
 type Reducers = Reducer<FilterSelectorContainerStates, FilterSelectorActions, FilterSelectorContainerStates>
@@ -14,7 +14,9 @@ const reducer: Reducers = (state, action) => {
       } = action.payload;
       const selected = options[selectedIndex];
       if(selected) {
-        getSelectedOptionFn && getSelectedOptionFn(selected);
+        if(getSelectedOptionFn) {
+          getSelectedOptionFn(selected);
+        }
         return ({
           ...state,
           selectedIndex,

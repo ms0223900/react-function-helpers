@@ -1,6 +1,6 @@
 import React, {  } from 'react';
-import { FilterSelectorContainerProps } from './types';
 import FilterSelector from './FilterSelector';
+import { FilterSelectorContainerProps } from './types';
 import useFilterSelector from './useFilterSelector';
 
 const FilterSelectorContainer = (props: FilterSelectorContainerProps) => {

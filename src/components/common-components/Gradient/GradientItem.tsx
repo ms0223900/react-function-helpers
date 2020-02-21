@@ -1,9 +1,9 @@
-import React, { ChangeEvent } from 'react';
-import { Box, TextField, Typography, Fab, Button, IconButton } from '@material-ui/core';
-import { Callback } from 'all-common-types';
-import { ColorItem } from '../colorPickerTool/ColorItem';
-import { GradientItemValue, ColorPercent } from './types';
+import { Box, Button, Fab, IconButton, TextField, Typography } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
+import { Callback } from 'all-common-types';
+import React, { ChangeEvent } from 'react';
+import { ColorItem } from '../colorPickerTool/ColorItem';
+import { ColorPercent, GradientItemValue } from './types';
 
 export interface GradientItemProps {
   values: GradientItemValue

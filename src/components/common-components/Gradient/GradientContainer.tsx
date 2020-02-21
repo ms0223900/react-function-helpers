@@ -1,10 +1,10 @@
-import React, { useReducer, useCallback } from 'react';
 import { Box } from '@material-ui/core';
-import GradientResult, { GradientResultProps } from './GradientResult';
+import React, { useCallback, useReducer } from 'react';
 import GradientColorsList from './GradientColorsList';
+import GradientResult, { GradientResultProps } from './GradientResult';
 import { ColorPercent } from './types';
 
-export interface State extends GradientResultProps {}
+export type State = GradientResultProps
 
 const initGradientItem = {
   color: '#aff',
@@ -32,12 +32,12 @@ const addColorAction = () => ({
   type: ACTION_TYPES.ADD_COLOR,
 });
 
-interface editColorActionPayload {
+interface EditColorActionPayload {
   index: number,
   name: ColorPercent,
   value: string,
 }
-const editColorAction = (payload: editColorActionPayload) => ({
+const editColorAction = (payload: EditColorActionPayload) => ({
   type: ACTION_TYPES.EDIT_COLOR_PERCENT,
   payload,
 });
@@ -57,7 +57,7 @@ const reducer = (state: State, action: any): State => {
         index,
         name,
         value
-      } = action.payload as editColorActionPayload;
+      } = action.payload as EditColorActionPayload;
       const newValueList = [...state.gradientItemValueList];
       newValueList[index] = {
         ...newValueList[index],

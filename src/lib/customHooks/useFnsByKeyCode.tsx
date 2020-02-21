@@ -1,5 +1,5 @@
 import { Callback } from 'all-common-types';
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import * as KEYCODE from '../../config';
 import calNewIndex from '../../helperFns/calNewIndex';
 
@@ -40,8 +40,10 @@ export const useFnsByKeyCode = ({
     switch (keyCode) {
       case KEYCODE.ENTER:
       case KEYCODE.ESCAPE: {
-        confirmFnNow.current && 
-        HandleFnsByKeyCode.confirmOrEscape(confirmFnNow.current, escapeFn)(keyCode);
+        if(confirmFnNow.current) {
+          HandleFnsByKeyCode.confirmOrEscape(confirmFnNow.current, escapeFn)(keyCode);
+        } 
+        ;
         break;
       }
       case KEYCODE.ARROW_UP:

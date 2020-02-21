@@ -1,16 +1,16 @@
-import React, { memo, useCallback, useRef, createRef, useEffect, forwardRef, Ref, MutableRefObject } from 'react';
 import { 
-  TextField, 
+  Box, 
+  CircularProgress,
   List,
   ListItem,
   ListItemText,
-  Paper,
-  CircularProgress,
   makeStyles,
-  Box,
+  Paper,
+  TextField,
 } from '@material-ui/core';
-import { SingleSelectProps, SelectsInFilterProps } from './types';
+import React, { createRef, forwardRef, memo, MutableRefObject, Ref, useCallback, useEffect, useRef } from 'react';
 import { useStylesSelectsInFilter } from './styles';
+import { SelectsInFilterProps, SingleSelectProps } from './types';
 import useScrollToSingleSelect from './useScrollToSingleSelect';
 
 export const NoOptionsInfo = ({ input }: {
@@ -52,12 +52,16 @@ export const Selects = ({
 
   const handleSelectRoute = useCallback((index: number) => {
     return () => {
-      selectFn && selectFn(index);
+      if(selectFn) {
+        selectFn(index);
+      }
     };
   }, [selectFn]);
 
   const handleClose = useCallback(() => {
-    closeSelectsFn && closeSelectsFn();
+    if(closeSelectsFn) {
+      closeSelectsFn();
+    }
   }, [closeSelectsFn]);
 
   useScrollToSingleSelect(listRefs, selectedIndex);

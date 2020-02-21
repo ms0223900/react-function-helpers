@@ -1,8 +1,8 @@
-import React from 'react';
 import { Box, Button } from '@material-ui/core';
-import { GradientItemValue, ColorPercent } from './types';
 import { Callback } from 'all-common-types';
+import React from 'react';
 import GradientItemContainer from './GradientItemContainer';
+import { ColorPercent, GradientItemValue } from './types';
 
 export interface GradientColorsListProps {
   gradientItemValueList: GradientItemValue[]

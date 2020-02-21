@@ -1,8 +1,8 @@
-import { SelectsInFilterProps } from "./types";
 import { useEffect } from "react";
+import { SelectsInFilterProps } from "./types";
 
 const useScrollToSingleSelect = (
-  listRefs: React.MutableRefObject<React.RefObject<HTMLDivElement>[]>, 
+  listRefs: React.MutableRefObject<Array<React.RefObject<HTMLDivElement>>>, 
   selectedIndex: SelectsInFilterProps['selectedIndex']
 ) => {
   useEffect(() => {

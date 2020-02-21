@@ -1,10 +1,10 @@
-import React from 'react';
 import { 
+  Box, 
   Button, 
-  Typography, 
-  Box,
   makeStyles,
+  Typography,
 } from '@material-ui/core';
+import React from 'react';
 import Selects from './SelectsInFilter';
 import { FilterSelectorProps } from './types';
 

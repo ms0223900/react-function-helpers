@@ -1,5 +1,5 @@
-import { Styles, WithStylesOptions, CSSProperties } from "@material-ui/styles";
-import { Theme, makeStyles } from "@material-ui/core";
+import { makeStyles, Theme } from "@material-ui/core";
+import { CSSProperties, Styles, WithStylesOptions } from "@material-ui/styles";
 
 export const clickBG: {
   ['clickBG']: CSSProperties

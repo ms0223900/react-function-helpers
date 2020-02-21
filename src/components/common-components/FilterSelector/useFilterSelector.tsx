@@ -1,8 +1,8 @@
-import React, { useReducer, useCallback } from 'react';
-import { FilterSelectorContainerStates, FilterSelectorContainerProps } from './types';
+import React, { useCallback, useReducer } from 'react';
 import { useFnsByKeyCode } from '../../../lib/customHooks/useFnsByKeyCode';
+import { filter, FitlerActionPayload , resetSelect, ResetSelectActionPayload, select, SelectPayload, setState, toggleDisplaySelects } from './actions';
 import reducer from './reducers';
-import { filter, toggleDisplaySelects , resetSelect, select, SelectPayload, ResetSelectActionPayload, FitlerActionPayload, setState } from './actions';
+import { FilterSelectorContainerProps, FilterSelectorContainerStates } from './types';
 
 const initDefaultSelectedText = '--請選擇路線';
 
@@ -47,7 +47,9 @@ const useFilterSelector = (props: FilterSelectorContainerProps) => {
   }, []);
 
   const handleCloseDisplaySelects = useCallback(() => {
-    state.isDisplaySelects && dispatch(toggleDisplaySelects());
+    if(state.isDisplaySelects) {
+      dispatch(toggleDisplaySelects());
+    };
   }, [state.isDisplaySelects]);
 
   const handleFilter = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

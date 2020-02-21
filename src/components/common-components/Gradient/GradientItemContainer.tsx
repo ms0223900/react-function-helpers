@@ -1,5 +1,5 @@
-import React, { useCallback, ChangeEvent } from 'react';
 import { Box } from '@material-ui/core';
+import React, { ChangeEvent, useCallback } from 'react';
 import GradientItem, { GradientItemProps } from './GradientItem';
 import { ColorPercent } from './types';
 
@@ -13,10 +13,12 @@ const GradientItemContainer = (props: GradientItemContainerProps) => {
   const handleEditColorPercent = useCallback((name: ColorPercent) => {
     return (e: ChangeEvent<HTMLInputElement>) => {
       const { value } = e.target;
-      props.editColorPercentFn && props.editColorPercentFn({
-        name,
-        value
-      });
+      if(props.editColorPercentFn) {
+        props.editColorPercentFn({
+          name,
+          value
+        });
+      }
     };
   }, []);
 
