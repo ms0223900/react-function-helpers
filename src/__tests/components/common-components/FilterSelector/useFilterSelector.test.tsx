@@ -52,10 +52,15 @@ describe('test useFilterSelector hook', () => {
   });
 
   it('test handleResetSelect', () => {
+    const defaultSelectedText = 'dddd';
     const wrapper = shallow(
-      <DefaultHookWrapper />
+      <DefaultHookWrapper
+        defaultSelectedText={defaultSelectedText} />
     );
-    const action = resetSelect(filterSelectorContainerProps.options);
+    const action = resetSelect({
+      options: filterSelectorContainerProps.options,
+      defaultSelectedText,
+    });
     const { handleResetSelect } = wrapper.find(HookWrapper).props();
 
     act(() => {
@@ -140,9 +145,11 @@ describe('test handleCloseDisplaySelects', () => {
 describe('test useEffect functions', () => {
   it('test handleResetSelect to be called after props.options changed', () => {
     const newOptions: SelectorOptions = [];
+    const defaultSelectedText = '';
 
     const wrapper = mount(
-      <DefaultHookWrapper />
+      <DefaultHookWrapper
+        defaultSelectedText={defaultSelectedText} />
     );
 
     expect(dispatchFn).toBeCalledTimes(2);
@@ -153,7 +160,11 @@ describe('test useEffect functions', () => {
       wrapper.update();
     });
 
-    expect(dispatchFn).toHaveBeenNthCalledWith(3, resetSelect(newOptions));
+    const action = resetSelect({
+      options: newOptions,
+      defaultSelectedText,
+    });
+    expect(dispatchFn).toHaveBeenNthCalledWith(3, action);
   });
 
   it('test setState action should be dispatched', () => {

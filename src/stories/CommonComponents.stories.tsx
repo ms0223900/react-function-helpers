@@ -55,6 +55,7 @@ export const gradientContainer = () => (
 
 export const filterSelector = () => (
   <FilterSelectorContainer
+    defaultSelectedText={'select something'}
     getSelectedOptionFn={action('getSelectedOption')}
     options={options} />
 );

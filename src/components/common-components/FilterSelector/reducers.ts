@@ -28,10 +28,10 @@ const reducer: Reducers = (state, action) => {
     case FilterSelectorActionTypes.RESET_SELECTED:
       return ({
         ...state,
-        filteredOptions: action.payload,
+        filteredOptions: action.payload.options,
+        selectedText: action.payload.defaultSelectedText,
         filterInput: initFilterSelectorContainerState.filterInput,
         selectedIndex: initFilterSelectorContainerState.selectedIndex,
-        selectedText: initFilterSelectorContainerState.selectedText,
       });
 
     case FilterSelectorActionTypes.FILTER: {

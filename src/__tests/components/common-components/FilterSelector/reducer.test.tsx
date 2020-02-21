@@ -15,10 +15,10 @@ describe('test reducer', () => {
 
     const _expect: FilterSelectorContainerStates = {
       ...state,
-      filteredOptions: payload,
+      filteredOptions: payload.options,
+      selectedText: payload.defaultSelectedText,
       filterInput: initFilterSelectorContainerState.filterInput,
       selectedIndex: initFilterSelectorContainerState.selectedIndex,
-      selectedText: initFilterSelectorContainerState.selectedText,
     };
     expect(res).toEqual(_expect);
   });

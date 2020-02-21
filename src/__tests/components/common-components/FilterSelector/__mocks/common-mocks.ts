@@ -16,7 +16,10 @@ export const selectPayload: SelectPayload = {
   options: [],
 };
 
-export const resetSelectActionPayload: ResetSelectActionPayload = [singleSelectorOption];
+export const resetSelectActionPayload: ResetSelectActionPayload = {
+  options: [singleSelectorOption],
+  defaultSelectedText: 'ddd',
+};
 
 export const fitlerActionPayload: FitlerActionPayload = {
   filterInput: '',

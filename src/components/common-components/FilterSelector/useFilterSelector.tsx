@@ -16,12 +16,14 @@ export const initFilterSelectorContainerState: FilterSelectorContainerStates = (
 
 const useFilterSelector = (props: FilterSelectorContainerProps) => {
   const {
-    defaultSelectedText, options, getSelectedOptionFn, 
+    defaultSelectedText=initDefaultSelectedText, 
+    options, 
+    getSelectedOptionFn, 
   } = props;
 
   const [state, dispatch] = React.useReducer(reducer, ({
     ...initFilterSelectorContainerState,
-    selectedText: defaultSelectedText ? defaultSelectedText : initDefaultSelectedText
+    selectedText: defaultSelectedText,
   }));
 
   const handleSelect = useCallback((selectedIndex: number) => {
@@ -34,7 +36,10 @@ const useFilterSelector = (props: FilterSelectorContainerProps) => {
   }, [options, getSelectedOptionFn]);
 
   const handleResetSelect = useCallback(() => {
-    dispatch(resetSelect(options));
+    dispatch(resetSelect({
+      options,
+      defaultSelectedText,
+    }));
   }, [options]);
 
   const handleToggleDisplaySelects = useCallback(() => {

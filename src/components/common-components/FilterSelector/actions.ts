@@ -34,7 +34,10 @@ export interface SelectPayload {
   options: FilterSelectorContainerProps['options']
   getSelectedOptionFn?: FilterSelectorContainerProps['getSelectedOptionFn']
 }
-export type ResetSelectActionPayload = FilterSelectorContainerProps['options']
+export interface ResetSelectActionPayload {
+  options: FilterSelectorContainerProps['options']
+  defaultSelectedText: string
+}
 export interface FitlerActionPayload {
   filterInput: FilterSelectorContainerStates['filterInput']
   options: FilterSelectorContainerProps['options']
