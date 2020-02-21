@@ -11,12 +11,12 @@ export const useStylesSelectsInFilter = makeStyles(theme => ({
     backgroundColor: '#fff',
     // textAlign: 'center',
   },
+
   selects: {
     maxHeight: 400,
     padding: theme.spacing(1),
     overflow: 'auto',
   },
-  clickBG: {
-    ...clickBG,
-  }
+
+  ...clickBG,
 }));

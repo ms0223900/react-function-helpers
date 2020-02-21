@@ -1,7 +1,9 @@
-import { Styles } from "@material-ui/styles";
-import { Theme } from "@material-ui/core";
+import { Styles, WithStylesOptions, CSSProperties } from "@material-ui/styles";
+import { Theme, makeStyles } from "@material-ui/core";
 
-export const clickBG: Styles<Theme, any, 'clickBG'> = {
+export const clickBG: {
+  ['clickBG']: CSSProperties
+} = {
   clickBG: {
     width: '100vw',
     height: '100%',
