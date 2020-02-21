@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useRef, createRef, useEffect, forwardRef, Ref } from 'react';
+import React, { memo, useCallback, useRef, createRef, useEffect, forwardRef, Ref, MutableRefObject } from 'react';
 import { 
   TextField, 
   List,
@@ -11,6 +11,16 @@ import {
 } from '@material-ui/core';
 import { SingleSelectProps, SelectsInFilterProps } from './types';
 import { useStylesSelectsInFilter } from './styles';
+import useScrollToSingleSelect from './useScrollToSingleSelect';
+
+export const NoOptionsInfo = ({ input }: {
+  input: string
+}) => {
+  return (
+    <ListItem>
+      <ListItemText primary={ `no result matched ${ input }` } />
+    </ListItem>);
+};
 
 export const SingleSelect = forwardRef(({
   option, isSelected, clickFn
@@ -35,7 +45,9 @@ export const Selects = ({
   selectFn,
   closeSelectsFn 
 }: SelectsInFilterProps) => {
-  const listRefs = useRef(filteredOptions.map((op) => createRef<HTMLDivElement>()));
+  const listRefs = React.useRef(filteredOptions.map((op) => (
+    React.createRef<HTMLDivElement>()
+  )));
   const classes = useStylesSelectsInFilter();
 
   const handleSelectRoute = useCallback((index: number) => {
@@ -48,34 +60,21 @@ export const Selects = ({
     closeSelectsFn && closeSelectsFn();
   }, [closeSelectsFn]);
 
-  if(!filteredOptions) {
-    return <CircularProgress />;
-  };
-
-  useEffect(() => {
-    if(typeof selectedIndex === 'number') {
-      const itemRefNow = listRefs.current[selectedIndex].current;
-      itemRefNow && itemRefNow.scrollIntoView({
-        block: 'nearest',
-        behavior: 'smooth',
-      });
-    }
-  }, [listRefs, selectedIndex]);
+  useScrollToSingleSelect(listRefs, selectedIndex);
 
   return (
     <Box className={ classes && classes.root }>
       <Paper>
         <Box padding={1}>
           <TextField 
-            fullWidth
-            label={'route number'} 
+            fullWidth 
             autoFocus={ true }
             variant={'outlined'}
             onChange={ filterFn }
             value={ filterInput } />
         </Box>
-        <ul className={classes.selects}>
-          { filteredOptions && filteredOptions.length > 0 ? (
+        <List className={classes.selects}>
+          { filteredOptions.length > 0 ? (
             filteredOptions.map((option, i) => (
               <SingleSelect 
                 key={i}
@@ -85,13 +84,12 @@ export const Selects = ({
                 clickFn={handleSelectRoute(i)}  />
             ))
           ) : (
-            <ListItem>
-              <ListItemText primary={ `no result matched ${ filterInput }` } />
-            </ListItem>
+            <NoOptionsInfo input={filterInput} />
           ) }
-        </ul>
+        </List>
       </Paper>
       <Box 
+        id={'selectsInFilterBG'}
         className={classes.clickBG} 
         onClick={handleClose}
       />

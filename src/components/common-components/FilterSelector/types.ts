@@ -27,7 +27,6 @@ export interface SelectsInFilterProps {
 export interface FilterSelectorProps extends SelectsInFilterProps {
   isDisplaySelects: boolean
   selectedText: string
-  options: SelectorOptions
   toggleDisplaySelectsFn?: Callback
 }
 

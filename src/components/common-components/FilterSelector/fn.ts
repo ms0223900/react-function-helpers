@@ -20,9 +20,6 @@ export const getSelectedRouteNameValue = (
 };
 
 export const filterRoutesByValue = (value: string, routes: SelectorOptions) => {
-  if(routes) {
-    const filtered = routes.filter(option => option.text.includes(value));
-    return value.length === 0 ? routes : filtered;
-  }
-  return routes;
+  const filtered = routes.filter(option => option.text.includes(value));
+  return value.length === 0 ? routes : filtered;
 };

@@ -1,10 +1,15 @@
 import { SelectPayload, ResetSelectActionPayload, FitlerActionPayload, SetStateActionPayload } from "../../../../../components/common-components/FilterSelector/actions";
-import { SingleSelectorOption, FilterSelectorContainerStates, FilterSelectorContainerProps } from "../../../../../components/common-components/FilterSelector/types";
+import { SingleSelectorOption, FilterSelectorContainerStates, FilterSelectorContainerProps, FilterSelectorProps, SelectsInFilterProps, SingleSelectProps } from "../../../../../components/common-components/FilterSelector/types";
 
 export const singleSelectorOption: SingleSelectorOption = {
   value: 'a',
   text: 'A',
 };
+
+export const selectorOptions: SingleSelectorOption[] = [
+  singleSelectorOption,
+  singleSelectorOption,
+];
 
 export const selectPayload: SelectPayload = {
   selectedIndex: 0,
@@ -36,4 +41,23 @@ export const customInitState: FilterSelectorContainerStates = {
 export const filterSelectorContainerProps: FilterSelectorContainerProps = {
   options: [singleSelectorOption],
   defaultSelectedText: 'bb',
+};
+
+export const singleSelectProps: SingleSelectProps = {
+  option: singleSelectorOption,
+  isSelected: false,
+};
+
+export const selectsInFilterProps: SelectsInFilterProps = {
+  filterInput: '',
+  filteredOptions: [],
+  selectedIndex: undefined,
+};
+
+export const filterSelectorProps: FilterSelectorProps = {
+  ...selectsInFilterProps,
+  isDisplaySelects: false,
+  selectedText: '',
+  filterInput: '',
+  filteredOptions: [],
 };
