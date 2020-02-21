@@ -1,6 +1,6 @@
 import React, { useReducer, useCallback } from 'react';
 import { FilterSelectorContainerStates, FilterSelectorContainerProps } from './types';
-import { useFnsByKeyCode } from 'lib/customHooks/useFnsByKeyCode';
+import { useFnsByKeyCode } from '../../../lib/customHooks/useFnsByKeyCode';
 import reducer from './reducers';
 import { filter, toggleDisplaySelects , resetSelect, select, SelectPayload, ResetSelectActionPayload, FitlerActionPayload, setState } from './actions';
 
@@ -58,7 +58,7 @@ const useFilterSelector = (props: FilterSelectorContainerProps) => {
     index,
   } = useFnsByKeyCode({
     lastIndex: state.filteredOptions.length - 1,
-    confirmFn: () => {},
+    confirmFn: () => typeof state.selectedIndex === 'number' && handleSelect(state.selectedIndex),
     escapeFn: handleCloseDisplaySelects,
   });
 

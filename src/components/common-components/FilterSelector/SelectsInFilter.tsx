@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useRef, createRef, useEffect, forwardRef, Ref } from 'react';
 import { 
   TextField, 
   List,
@@ -9,15 +9,15 @@ import {
   makeStyles,
   Box,
 } from '@material-ui/core';
-import { clickBG } from 'styles/styleObjs';
 import { SingleSelectProps, SelectsInFilterProps } from './types';
 import { useStylesSelectsInFilter } from './styles';
 
-export const SingleSelect = ({
+export const SingleSelect = forwardRef(({
   option, isSelected, clickFn
-}: SingleSelectProps) => {
+}: SingleSelectProps, ref: Ref<HTMLDivElement>) => {
   return (
     <ListItem  
+      ref={ref}
       selected={ isSelected }
       onClick={ clickFn } 
       button
@@ -25,7 +25,7 @@ export const SingleSelect = ({
       <ListItemText primary={ option.text } />
     </ListItem>
   );
-};
+});
 
 export const Selects = ({ 
   filterInput, 
@@ -35,6 +35,7 @@ export const Selects = ({
   selectFn,
   closeSelectsFn 
 }: SelectsInFilterProps) => {
+  const listRefs = useRef(filteredOptions.map((op) => createRef<HTMLDivElement>()));
   const classes = useStylesSelectsInFilter();
 
   const handleSelectRoute = useCallback((index: number) => {
@@ -51,6 +52,16 @@ export const Selects = ({
     return <CircularProgress />;
   };
 
+  useEffect(() => {
+    if(typeof selectedIndex === 'number') {
+      const itemRefNow = listRefs.current[selectedIndex].current;
+      itemRefNow && itemRefNow.scrollIntoView({
+        block: 'nearest',
+        behavior: 'smooth',
+      });
+    }
+  }, [listRefs, selectedIndex]);
+
   return (
     <Box className={ classes && classes.root }>
       <Paper>
@@ -63,11 +74,12 @@ export const Selects = ({
             onChange={ filterFn }
             value={ filterInput } />
         </Box>
-        <List className={classes.selects}>
+        <ul className={classes.selects}>
           { filteredOptions && filteredOptions.length > 0 ? (
             filteredOptions.map((option, i) => (
               <SingleSelect 
                 key={i}
+                ref={listRefs.current[i]}
                 option={option}
                 isSelected={selectedIndex === i}
                 clickFn={handleSelectRoute(i)}  />
@@ -77,7 +89,7 @@ export const Selects = ({
               <ListItemText primary={ `no result matched ${ filterInput }` } />
             </ListItem>
           ) }
-        </List>
+        </ul>
       </Paper>
       <Box 
         className={classes.clickBG} 

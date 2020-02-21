@@ -1,5 +1,5 @@
 import { Callback } from 'all-common-types';
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import * as KEYCODE from '../../config';
 import calNewIndex from '../../helperFns/calNewIndex';
 
@@ -32,14 +32,16 @@ export const useFnsByKeyCode = ({
   confirmFn: Callback,
   escapeFn: Callback,
 }) => {
+  const confirmFnNow = useRef<Callback>();
   const [index, setIndex] = useState(0);
-  const [confirmFnNow, setConfirmFn] = useState(() => confirmFn);
+  // const [confirmFnNow, setConfirmFn] = useState(() => confirmFn);
   const HandleFnsByKeyCodeEvent = useCallback((e: KeyboardEvent) => {
     const { keyCode } = e;
     switch (keyCode) {
       case KEYCODE.ENTER:
       case KEYCODE.ESCAPE: {
-        HandleFnsByKeyCode.confirmOrEscape(confirmFnNow, escapeFn)(keyCode);
+        confirmFnNow.current && 
+        HandleFnsByKeyCode.confirmOrEscape(confirmFnNow.current, escapeFn)(keyCode);
         break;
       }
       case KEYCODE.ARROW_UP:
@@ -55,6 +57,11 @@ export const useFnsByKeyCode = ({
         break;
     }
   }, [confirmFnNow, escapeFn, lastIndex, index]);
+
+  useEffect(() => {
+    confirmFnNow.current = confirmFn;
+  }, [confirmFn]);
+
   useEffect(() => {
     window.addEventListener('keydown', HandleFnsByKeyCodeEvent);
     return () => {
@@ -64,6 +71,6 @@ export const useFnsByKeyCode = ({
   
   return ({
     index,
-    setConfirmFn
+    // setConfirmFn
   });
 };

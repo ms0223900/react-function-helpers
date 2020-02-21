@@ -1,11 +1,11 @@
 import { makeStyles } from "@material-ui/core";
-import { clickBG } from "styles/styleObjs";
+import { clickBG } from "../../../styles/styleObjs";
 
 
 export const useStylesSelectsInFilter = makeStyles(theme => ({
   root: {
     position: 'absolute',
-    zIndex: 1,
+    zIndex: 20202,
     width: '100%',
     // maxWidth: 400,
     backgroundColor: '#fff',
