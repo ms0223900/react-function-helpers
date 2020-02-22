@@ -3,6 +3,7 @@ import { Callback, ID } from 'all-common-types';
 import React from 'react';
 import GradientItemContainer from './GradientItemContainer';
 import { ColorPercent, GradientItemValue } from './types';
+import ColorPinList from './ColorPinList';
 
 export interface GradientColorsListProps {
   gradientItemValueList: GradientItemValue[]
@@ -12,11 +13,15 @@ export interface GradientColorsListProps {
     name: ColorPercent,
     value: string
   }) => any
+  setSelectedPercentFn?: (id: ID, percent: number) => any
 }
 
 const GradientColorsList = (props: GradientColorsListProps) => {
   return (
     <Box>
+      <ColorPinList 
+        gradientItemValueList={props.gradientItemValueList}
+        setSelectedPercent={props.setSelectedPercentFn} />
       {props.gradientItemValueList.map((val, i) => (
         <GradientItemContainer
           key={val.id}

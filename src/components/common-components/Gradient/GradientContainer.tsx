@@ -53,6 +53,15 @@ const GradientContainer = () => {
     };
   }, []);
 
+  const handleSetPercent = useCallback((id: ID, percent: number) => {
+    const action = editColor({
+      id,
+      name: 'percent',
+      value: String(percent),
+    });
+    dispatch(action);
+  }, []);
+
   return (
     <Box>
       <GradientResultContainer {...state} />
@@ -60,7 +69,8 @@ const GradientContainer = () => {
         addColorFn={handleAddColor}
         deleteColorFn={handleDeleteColor}
         gradientItemValueList={state.gradientItemValueList}
-        editColorPercentFn={handleSetColorPercent} />
+        editColorPercentFn={handleSetColorPercent}
+        setSelectedPercentFn={handleSetPercent} />
     </Box>
   );
 };

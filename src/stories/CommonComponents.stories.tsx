@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 import GradientItem, { GradientItemProps } from '../components/common-components/Gradient/GradientItem';
 import { GradientResult } from '../components/common-components/Gradient';
 import { GradientResultProps } from '../components/common-components/Gradient/GradientResult';
+import ColorPinList from '../components/common-components/Gradient/ColorPinList';
 import GradientContainer from '../components/common-components/Gradient/GradientContainer';
 import FilterSelectorContainer from '../components/common-components/FilterSelector/FilterSelectorContainer';
 import { SelectorOptions } from '../components/common-components/FilterSelector/types';
@@ -50,6 +51,11 @@ export const GradientItemComponent = () => (
 
 export const gradientResult = () => (
   <GradientResult {...gradientResultProps} />
+);
+
+export const colorPinList = () => (
+  <ColorPinList
+    gradientItemValueList={gradientResultProps.gradientItemValueList} />
 );
 
 export const gradientContainer = () => (
