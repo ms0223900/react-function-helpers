@@ -4,6 +4,7 @@ import GradientItem, { GradientItemProps } from '../components/common-components
 import { GradientResult } from '../components/common-components/Gradient';
 import { GradientResultProps } from '../components/common-components/Gradient/GradientResult';
 import ColorPinList from '../components/common-components/Gradient/ColorPinList';
+import DegreePointerContainer from '../components/common-components/Gradient/DegreePointerContainer';
 import GradientContainer from '../components/common-components/Gradient/GradientContainer';
 import FilterSelectorContainer from '../components/common-components/FilterSelector/FilterSelectorContainer';
 import { SelectorOptions } from '../components/common-components/FilterSelector/types';
@@ -47,6 +48,10 @@ const options: SelectorOptions = [
 
 export const GradientItemComponent = () => (
   <GradientItem {...gradientItemProps} />
+);
+
+export const degreePointer = () => (
+  <DegreePointerContainer />
 );
 
 export const gradientResult = () => (

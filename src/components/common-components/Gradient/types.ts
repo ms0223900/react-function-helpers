@@ -1,6 +1,10 @@
 import { ID, Callback } from "all-common-types";
 
 export type ColorPercent = 'color' | 'percent'
+export interface PercentXY {
+  percentX: number,
+  percentY: number
+}
 
 export interface GradientItemValue {
   id: ID

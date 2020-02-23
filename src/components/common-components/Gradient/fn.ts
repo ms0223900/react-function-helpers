@@ -1,11 +1,16 @@
 import { Callback } from "all-common-types";
 
 export const checkPercentIsInRange = (percent: number) => (
-  percent >= 0 && percent <= 1
+  (percent) >= 0 && (percent) <= 1
+);
+
+export const regularizeNumberToDigit2 = (num: number, digit=2) => (
+  // ~~(num * 10000) / 10000
+  Number.parseFloat(num.toFixed(digit))
 );
 
 export const regularizePercent = (percent: number) => {
-  const rawPercent = ~~(percent * 10000) / 100;
+  const rawPercent = regularizeNumberToDigit2(percent * 100);
   return rawPercent;
 };
 
@@ -40,8 +45,10 @@ export const getClientPercent = (domSpec: DOMRect | undefined) => (cb?: Callback
       percentX: regularizePercent(percentX),
       percentY: regularizePercent(percentY),
     });
-    console.log(res);
-    return cb && isInRange && cb(res);
+    if(cb && isInRange) {
+      cb(res);
+      return res;
+    }
   }
   return null;
 };

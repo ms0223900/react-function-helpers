@@ -9,8 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     position: 'relative',
     // width: 300,
-    height: 200,
-    backgroundColor: '#ddd',
+    height: 80,
   }
 }));
 
@@ -42,6 +41,8 @@ const ColorPinList = (props: ColorPinListProps) => {
     };
   }, [percentXY]);
 
+  const handleSetSelectedPercentWithId = useCallback(handleSetSelectedPercent(selectedId), [selectedId]);
+
   useEffect(() => {
     if(divRef.current) {
       domSpec.current = divRef.current.getBoundingClientRect();
@@ -53,12 +54,13 @@ const ColorPinList = (props: ColorPinListProps) => {
 
   useEffect(() => {
     if(typeof selectedId === 'number') {
-      const setFn = handleSetSelectedPercent(selectedId);
-      const clientPercentFn = getClientPercent(domSpec.current)(setFn);
+      const clientPercentFn = getClientPercent(domSpec.current)(
+        handleSetSelectedPercentWithId
+      );
       window.addEventListener('mousemove', clientPercentFn);
       return () => window.removeEventListener('mousemove', clientPercentFn);
     }
-  }, [selectedId]);
+  }, [handleSetSelectedPercentWithId]);
 
   return (
     <RootRef rootRef={divRef}>

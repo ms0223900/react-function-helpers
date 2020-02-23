@@ -2,16 +2,20 @@ import React, { useCallback } from 'react';
 import { Box, makeStyles, Theme } from '@material-ui/core';
 import { GradientItemValue, ColorPinProps } from './types';
 
+const width = 20;
+const height = 40;
+
 const useStyles = makeStyles<Theme, ColorPinProps>(theme => ({
   root: {
     position: 'absolute',
     top: props => props.position.y,
     left: props => `${props.gradientItemValue.percent}%`,
     backgroundColor: props => props.gradientItemValue.color,
-    width: 30,
-    height: 60,
+    width,
+    height,
     border: '2px solid #aaa',
-    borderColor: props => props.isSelected ? '#a00' : '#ddd',
+    borderColor: props => props.isSelected ? '#a00' : '#333',
+    transform: `translateX(${width / 2 * -1}px)`,
     cursor: 'pointer',
     '&:hover': {
       opacity: 0.9,
