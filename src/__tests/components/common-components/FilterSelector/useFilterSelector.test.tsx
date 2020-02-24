@@ -38,7 +38,7 @@ describe('test useFilterSelector hook', () => {
       <DefaultHookWrapper />
     );
     const action = select({
-      options: filterSelectorContainerProps.options,
+      options: customInitState.filteredOptions,
       getSelectedOptionFn: filterSelectorContainerProps.getSelectedOptionFn,
       selectedIndex,
     });

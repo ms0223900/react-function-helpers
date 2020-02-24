@@ -5,5 +5,10 @@
     "only-arrow-functions": [false, "allow-declarations", "allow-named-functions"],
     "object-literal-sort-keys": false,
     "no-empty": false
-  }
+  },
+  "linterOptions": {
+    "exclude": [
+        "src/components/common-components/Gradient/*"
+    ]
+}
 }

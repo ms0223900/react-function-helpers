@@ -29,11 +29,11 @@ const useFilterSelector = (props: FilterSelectorContainerProps) => {
   const handleSelect = useCallback((selectedIndex: number) => {
     const payload: SelectPayload = {
       selectedIndex,
-      options,
+      options: state.filteredOptions,
       getSelectedOptionFn
     };
     dispatch(select(payload));
-  }, [options, getSelectedOptionFn]);
+  }, [state.filteredOptions, getSelectedOptionFn]);
 
   const handleResetSelect = useCallback(() => {
     dispatch(resetSelect({
