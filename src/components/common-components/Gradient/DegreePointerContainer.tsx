@@ -1,37 +1,40 @@
-import React, { useState, useRef, useCallback, ChangeEvent } from 'react';
-import { Box } from '@material-ui/core';
+import React, { useState, useCallback, ChangeEvent, useEffect, memo } from 'react';
 import DegreePointer from './DegreePointer';
 import useDomRef from './useDomRef';
 import { PercentXY } from './types';
-import { regularizeNumberToDigit2 } from './fn';
+import getDegreeFromPercentXY from './fn/getDegreeFromPercentXY';
 
-const halfPercent = 50;
-const degreeCorrection = 90;
+export interface DegreePointerContainerProps {
+  getDegreeFn?: (deg: number) => any
+  valsForDetect?: any[]
+}
 
-const DegreePointerContainer = () => {
-  const [degree, setDegree] = useState<number | string>(0);
+const DegreePointerContainer = (props: DegreePointerContainerProps) => {
+  const [degree, setDegree] = useState<number>(0);
 
   const handleRotate = useCallback((percentXY: PercentXY) => {
-    const {
-      percentX,
-      percentY,
-    } = percentXY;
-    const vectorX = percentX - halfPercent;
-    const vectorY = percentY - halfPercent;
-    const turn = Math.atan2(vectorY, vectorX);
-    const degree = regularizeNumberToDigit2(turn / Math.PI * 180, 0);
-    const correctedDegree = degree + degreeCorrection;
-    setDegree(correctedDegree);
+    const degree = getDegreeFromPercentXY(percentXY);
+    setDegree(degree);
   }, []);
 
   const handleChangeDegree = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setDegree(value);
+    let regValue = Number(value);
+    if(isNaN(regValue)) {
+      // regValue = 0;
+    }
+    setDegree(regValue);
   }, []);
 
   const {
     divRef,
-  } = useDomRef(handleRotate);
+  } = useDomRef(handleRotate, props.valsForDetect);
+
+  useEffect(() => {
+    if(props.getDegreeFn) {
+      props.getDegreeFn(degree);
+    }
+  }, [degree]);
 
   return (
     <DegreePointer
@@ -41,4 +44,4 @@ const DegreePointerContainer = () => {
   );
 };
 
-export default DegreePointerContainer;
+export default memo(DegreePointerContainer);

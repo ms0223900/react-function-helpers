@@ -41,6 +41,7 @@ const DegreePointer = (props: DegreePointerProps) => {
       </RootRef>
       <TextField 
         label={'degree'}
+        type={'number'}
         value={props.degree}
         onChange={props.changeDegreeFn} />
     </Box>

@@ -68,6 +68,14 @@ const reducer = (state: State, action: GradientActions): State => {
       });
     }
 
+    case ACTION_TYPES.EDIT_DEGREE: {
+      const { degree } = action.payload;
+      return ({
+        ...state,
+        degree,
+      });
+    }
+
     default:
       return state;
   }

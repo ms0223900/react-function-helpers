@@ -19,6 +19,10 @@ export interface DeleteColorAction {
   type: ACTION_TYPES.DELETE_COLOR,
   payload: DeleteColorActionPayload
 }
+export interface EditDegreeAction {
+  type: ACTION_TYPES.EDIT_DEGREE,
+  payload: EditDegreeActionPayload
+}
 
 export const addColor = (): AddColorAction => ({
   type: ACTION_TYPES.ADD_COLOR,
@@ -31,6 +35,10 @@ export const deleteColor = (payload: DeleteColorActionPayload): DeleteColorActio
   type: ACTION_TYPES.DELETE_COLOR,
   payload,
 });
+export const editDegree = (payload: EditDegreeActionPayload): EditDegreeAction => ({
+  type: ACTION_TYPES.EDIT_DEGREE,
+  payload
+});
 
 export interface EditColorActionPayload {
   id: ID,
@@ -40,8 +48,12 @@ export interface EditColorActionPayload {
 export interface DeleteColorActionPayload {
   id: ID,
 }
+export interface EditDegreeActionPayload {
+  degree: number
+}
 
 export type GradientActions = 
   AddColorAction |
   EditColorAction |
-  DeleteColorAction
+  DeleteColorAction |
+  EditDegreeAction;

@@ -1,4 +1,5 @@
 import { Callback } from "all-common-types";
+import { PercentXY } from "./types";
 
 export const checkPercentIsInRange = (percent: number) => (
   (percent) >= 0 && (percent) <= 1

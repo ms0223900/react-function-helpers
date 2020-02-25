@@ -4,9 +4,10 @@ import GradientColorsList from './GradientColorsList';
 import GradientResult, { GradientResultProps } from './GradientResult';
 import { ColorPercent } from './types';
 import reducer from './reducers';
-import { addColor, editColor, deleteColor } from './actions';
+import { addColor, editColor, deleteColor, editDegree } from './actions';
 import { ID } from 'all-common-types';
 import GradientResultContainer from './GradientResultContainer';
+import DegreePointerContainer from './DegreePointerContainer';
 
 export type State = GradientResultProps
 
@@ -62,6 +63,14 @@ const GradientContainer = () => {
     dispatch(action);
   }, []);
 
+  const handleSetDegree = useCallback((degree: number) => {
+    dispatch(
+      editDegree({
+        degree
+      })
+    );
+  }, []);
+
   return (
     <Box>
       <GradientResultContainer {...state} />
@@ -71,6 +80,9 @@ const GradientContainer = () => {
         gradientItemValueList={state.gradientItemValueList}
         editColorPercentFn={handleSetColorPercent}
         setSelectedPercentFn={handleSetPercent} />
+      <DegreePointerContainer 
+        getDegreeFn={handleSetDegree}
+        valsForDetect={[state.gradientItemValueList.length]} />
     </Box>
   );
 };
