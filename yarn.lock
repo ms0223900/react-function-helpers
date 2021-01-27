@@ -2237,9 +2237,9 @@ acorn-walk@^6.0.1:
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
 acorn@^5.5.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1, acorn@^6.2.1:
   version "6.4.0"
@@ -9775,10 +9775,12 @@ react-focus-lock@^2.1.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-function-helpers@^1.2.3:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.4.tgz#52c746535fd9d43b133edbbc1d86e97643a245b9"
-  integrity sha512-PW4Y+8cZkICO5l4XFxJu5TnHop9VtaNcKFaTJ/mGG/MK6rmE/Vp6IRoP9WohMuL4pe5R+bxvAAjlNQpL52gpIA==
+react-function-helpers@^1.2.5:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.8.tgz#ed2f9626cef7bce82309af7650eb66d5b0cc15d2"
+  integrity sha512-b8Wdq0cQhGwLJPUG65nBWuaYoMFPwev3XtDi5HrxAkbm+UGWkKYu0JTtXmlJKm2Izxw1E3fYQyDdOMytZCducQ==
+  dependencies:
+    serve "^11.3.0"
 
 react-helmet-async@^1.0.2:
   version "1.0.4"
