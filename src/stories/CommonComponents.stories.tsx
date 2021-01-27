@@ -8,6 +8,7 @@ import DegreePointerContainer from '../components/common-components/Gradient/Deg
 import GradientContainer from '../components/common-components/Gradient/GradientContainer';
 import FilterSelectorContainer from '../components/common-components/FilterSelector/FilterSelectorContainer';
 import { SelectorOptions } from '../components/common-components/FilterSelector/types';
+import UploadFormContainer from '../components/common-components/UploadPart/containers/UploadFormContainer';
 
 const gradientItemProps: GradientItemProps = {
   values: {
@@ -72,6 +73,20 @@ export const filterSelector = () => (
     defaultSelectedText={'select something'}
     getSelectedOptionFn={action('getSelectedOption')}
     options={options} />
+);
+
+export const uploadFormSample = () => (
+  <UploadFormContainer
+    maxUploadFileAmount={5}
+    previewImageProps={{
+      style: {
+        width: 300,
+        height: 'auto',
+        backgroundColor: '#ddd',
+        padding: 8,
+      }
+    }}
+  />
 );
 
 export default {
