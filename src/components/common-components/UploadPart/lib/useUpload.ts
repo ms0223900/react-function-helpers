@@ -51,7 +51,7 @@ const useUpload = (options: UseUploadOptions) => {
   );
 
   const handleRemoveFile = useCallback((index: number) => () => {
-    const removeConfirmed = window.confirm('Do you sure remove this file?');
+    const removeConfirmed = window.confirm('Are you sure remove this file?');
     if(fileList && removeConfirmed) {
       const handledFiles = Array.from(fileList).filter((f, i) => i !== index) as any;
       setFiles(handledFiles);
