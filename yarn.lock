@@ -6204,9 +6204,9 @@ homedir-polyfill@^1.0.1:
     parse-passwd "^1.0.0"
 
 hosted-git-info@^2.1.4:
-  version "2.8.5"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.5.tgz#759cfcf2c4d156ade59b0b2dfabddc42a6b9c70c"
-  integrity sha512-kssjab8CvdXfcXMXVcvsXum4Hwdq9XGtRD3TteMEvEbq0LXyiNQr6AprqKqfeaDXze7SxWvRxdpwE6ku7ikLkg==
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
+  integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -9775,10 +9775,12 @@ react-focus-lock@^2.1.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-function-helpers@^1.2.3:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.4.tgz#52c746535fd9d43b133edbbc1d86e97643a245b9"
-  integrity sha512-PW4Y+8cZkICO5l4XFxJu5TnHop9VtaNcKFaTJ/mGG/MK6rmE/Vp6IRoP9WohMuL4pe5R+bxvAAjlNQpL52gpIA==
+react-function-helpers@^1.2.5:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.8.tgz#ed2f9626cef7bce82309af7650eb66d5b0cc15d2"
+  integrity sha512-b8Wdq0cQhGwLJPUG65nBWuaYoMFPwev3XtDi5HrxAkbm+UGWkKYu0JTtXmlJKm2Izxw1E3fYQyDdOMytZCducQ==
+  dependencies:
+    serve "^11.3.0"
 
 react-helmet-async@^1.0.2:
   version "1.0.4"
