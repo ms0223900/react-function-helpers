@@ -9070,9 +9070,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@0.1.7:
   version "0.1.7"
@@ -9775,10 +9775,12 @@ react-focus-lock@^2.1.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-function-helpers@^1.2.3:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.4.tgz#52c746535fd9d43b133edbbc1d86e97643a245b9"
-  integrity sha512-PW4Y+8cZkICO5l4XFxJu5TnHop9VtaNcKFaTJ/mGG/MK6rmE/Vp6IRoP9WohMuL4pe5R+bxvAAjlNQpL52gpIA==
+react-function-helpers@^1.2.5:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.8.tgz#ed2f9626cef7bce82309af7650eb66d5b0cc15d2"
+  integrity sha512-b8Wdq0cQhGwLJPUG65nBWuaYoMFPwev3XtDi5HrxAkbm+UGWkKYu0JTtXmlJKm2Izxw1E3fYQyDdOMytZCducQ==
+  dependencies:
+    serve "^11.3.0"
 
 react-helmet-async@^1.0.2:
   version "1.0.4"
