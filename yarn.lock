@@ -9775,10 +9775,12 @@ react-focus-lock@^2.1.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-function-helpers@^1.2.3:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.4.tgz#52c746535fd9d43b133edbbc1d86e97643a245b9"
-  integrity sha512-PW4Y+8cZkICO5l4XFxJu5TnHop9VtaNcKFaTJ/mGG/MK6rmE/Vp6IRoP9WohMuL4pe5R+bxvAAjlNQpL52gpIA==
+react-function-helpers@^1.2.5:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-function-helpers/-/react-function-helpers-1.2.8.tgz#ed2f9626cef7bce82309af7650eb66d5b0cc15d2"
+  integrity sha512-b8Wdq0cQhGwLJPUG65nBWuaYoMFPwev3XtDi5HrxAkbm+UGWkKYu0JTtXmlJKm2Izxw1E3fYQyDdOMytZCducQ==
+  dependencies:
+    serve "^11.3.0"
 
 react-helmet-async@^1.0.2:
   version "1.0.4"
@@ -11402,9 +11404,9 @@ tmp@^0.1.0:
     rimraf "^2.6.3"
 
 tmpl@1.0.x:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
-  integrity sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
+  integrity sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
